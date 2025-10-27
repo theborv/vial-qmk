@@ -1,7 +1,7 @@
 {
     "keyboard_name": "Space65R3",
     "url": "https://graystudio.site/en/works/space65r3/",
-    "maintainer": "edwardslau",
+    "maintainer": "theborv",
     "manufacturer": "GrayStudio",
     "usb": {
         "vid": "0x4753",
@@ -41,7 +41,7 @@
         "bootmagic": true,
         "extrakey": true,
         "mousekey": true,
-        "nkro": false,
+        "nkro": true,
         "rgblight": true
     },
     "qmk": {

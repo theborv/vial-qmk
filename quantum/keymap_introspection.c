@@ -1,6 +1,5 @@
 // Copyright 2022 Nick Brassel (@tzarc)
 // SPDX-License-Identifier: GPL-2.0-or-later
-
 #if defined(COMMUNITY_MODULES_ENABLE)
 #    include "community_modules_introspection.h"
 #endif // defined(COMMUNITY_MODULES_ENABLE)
