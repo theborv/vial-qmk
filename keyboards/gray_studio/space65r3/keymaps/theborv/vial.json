@@ -19,6 +19,21 @@
 			"name": "Reboot",
 			"title": "Reboot",
 			"shortName": "RBOOT"
+		},
+		{
+			"name": "MonitorG5",
+			"title": "MonitorG5",
+			"shortName": "MONG5"
+		},
+		{
+			"name": "LGTV",
+			"title": "LGTV",
+			"shortName": "LGTV"
+		},
+		{
+			"name": "Extend Monitors",
+			"title": "Extend Monitors",
+			"shortName": "EXTMON"
 		}
 	],
 	"layouts": {
