@@ -5,6 +5,7 @@
 #include QMK_KEYBOARD_H
 #include "vial.h"
 #include "keymap_eurkey.h"
+
 // macros
 enum custom_keycodes {
     KIPAS = QK_KB_0,
