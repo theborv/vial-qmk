@@ -8,31 +8,31 @@
 		{
 			"name": "Keepass",
 			"title": "Keepass",
-			"shortName": "KIPAS"
+			"shortName": "KEEPAS"
 		},
 		{
 			"name": "Shutdown",
 			"title": "Shutdown",
-			"shortName": "POFF"
+			"shortName": "PCOFF"
 		},
 		{
 			"name": "Reboot",
 			"title": "Reboot",
-			"shortName": "RBOOT"
+			"shortName": "REBOOT"
 		},
 		{
-			"name": "MonitorG5",
+			"name": "Samsung G5 Only",
 			"title": "MonitorG5",
-			"shortName": "MONG5"
+			"shortName": "G5ONLY"
 		},
 		{
-			"name": "LGTV",
-			"title": "LGTV",
-			"shortName": "LGTV"
+			"name": "LGC1 TV Only",
+			"title": "LGC1 TV Only",
+			"shortName": "LGONLY"
 		},
 		{
-			"name": "Extend Monitors",
-			"title": "Extend Monitors",
+			"name": "Both Monitors",
+			"title": "Both Monitors",
 			"shortName": "EXTMON"
 		}
 	],

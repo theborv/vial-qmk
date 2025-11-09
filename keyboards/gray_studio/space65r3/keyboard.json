@@ -11,6 +11,13 @@
     "ws2812": {
         "pin": "B10"
     },
+    "features": {
+        "bootmagic": true,
+        "extrakey": true,
+        "mousekey": true,
+        "nkro": true,
+        "rgblight": true
+    },
     "rgblight": {
         "saturation_steps": 8,
         "brightness_steps": 8,
@@ -36,13 +43,6 @@
             "enabled": true,
             "override_rgb": true
         }
-    },
-    "features": {
-        "bootmagic": true,
-        "extrakey": true,
-        "mousekey": true,
-        "nkro": true,
-        "rgblight": true
     },
     "qmk": {
         "locking": {

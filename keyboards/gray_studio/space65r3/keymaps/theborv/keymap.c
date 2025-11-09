@@ -8,17 +8,18 @@
 
 // macros
 enum custom_keycodes {
-    KIPAS = QK_KB_0,
-	POFF,
-	RBOOT,
-	MONG5,
-	LGTV,
+    KEEPAS = QK_KB_0,
+	PCOFF,
+	REBOOT,
+	G5ONLY,
+	LGONLY,
 	EXTMON,
 };
 
 enum layers {
     _L0,
     _L1,
+	_L2,
 };
 
 // disable swap keycodes
@@ -66,31 +67,31 @@ void install_tap_dance_entries(void) {
 // send string to run batch files
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
-    case KIPAS: // run keepass
+    case KEEPAS // run keepass
         if (record->event.pressed) {
             SEND_STRING(SS_TAP(X_LGUI) SS_DELAY(100) "keepasseirik" SS_DELAY(100) SS_TAP(X_ENT));
         } else {
         }
         break;
-	case POFF: // shut down computer
+	case PCOFF: // shut down computer
         if (record->event.pressed) {
             SEND_STRING(SS_TAP(X_LGUI) SS_DELAY(100) "PowerShell-Poweroff" SS_DELAY(100) SS_TAP(X_ENT));
         } else {
         }
         break;
-	case RBOOT: // reboot computer
+	case REBOOT: // reboot computer
         if (record->event.pressed) {
             SEND_STRING(SS_TAP(X_LGUI) SS_DELAY(100) "PowerShell-Reboot" SS_DELAY(100) SS_TAP(X_ENT));
         } else {
         }
         break;
-	case MONG5: // SamsungG5 only
+	case G5ONLY: // SamsungG5 only
         if (record->event.pressed) {
             SEND_STRING(SS_TAP(X_LGUI) SS_DELAY(100) "SamsungG5" SS_DELAY(100) SS_TAP(X_ENT));
         } else {
         }
         break;
-	case LGTV: // LGTV only
+	case LGONLY: // LGTV only
         if (record->event.pressed) {
             SEND_STRING(SS_TAP(X_LGUI) SS_DELAY(100) "LGTV" SS_DELAY(100) SS_TAP(X_ENT));
         } else {
@@ -126,14 +127,21 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 		KC_TAB,           KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    EU_ARNG, KC_RBRC, KC_BSLS, KC_PGUP,
 		KC_CAPS,          KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    KC_H,    KC_J,    KC_K,    KC_L,    EU_AE,   EU_OSTR, KC_ENT,           KC_PGDN,
 		KC_LSFT, KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_RSFT,          KC_UP,   KC_DEL,
-		KC_LCTL, KC_LGUI, KC_LALT,                            KC_SPC,                    KC_RALT, MO(_L1),                     KC_LEFT, KC_DOWN, KC_RGHT
+		KC_LCTL, KC_LGUI, KC_LALT,                            KC_SPC,                    KC_RALT, MO(_L1),                   KC_LEFT, KC_DOWN, KC_RGHT
 	),
     [_L1] = LAYOUT(
 		KC_GRV,  KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,  KC_F12,  QK_BOOT, QK_BOOT, KC_END,
-		EE_CLR,           UG_TOGG, UG_NEXT, UG_HUEU, UG_SATU, UG_VALU, UG_SPDU, _______, _______, _______, KIPAS,   TD(2),   TD(3),   _______, KC_PSCR,
+		EE_CLR,           UG_TOGG, UG_NEXT, UG_HUEU, UG_SATU, UG_VALU, UG_SPDU, _______, _______, _______, _______, TD(2),   TD(3),   _______, KC_PSCR,
 		QK_RBT,           _______, _______, UG_HUED, UG_SATD, UG_VALD, UG_SPDD, _______, _______, _______, TD(0),   TD(1),   _______,          KC_SCRL,
 		_______, _______, _______, _______, _______, _______, NK_OFF,  NK_ON,   MONG5,   LGTV,    EXTMON,  _______, _______,          KC_VOLU, KC_PAUS,
-		POFF,    _______, RBOOT,                              _______,                            _______, _______,          _______, KC_VOLD, KC_INS
+		_______, _______, _______,                            _______,                   _______, _______,                   KEEPAS,  KC_VOLD, KC_INS
+	),
+    [_L2] = LAYOUT(
+        _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
+        _______,          _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
+        _______,          _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,          _______,
+        _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,          _______, _______,
+        _______, _______, _______,                            _______,                   _______, _______,                   _______, _______, _______
 	)
 };
 
