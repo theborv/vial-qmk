@@ -5,15 +5,16 @@
 #include QMK_KEYBOARD_H
 #include "vial.h"
 #include "keymap_eurkey.h"
-
 // macros
 enum custom_keycodes {
-    KEEPAS = QK_KB_0,
-	PCOFF,
-	REBOOT,
-	G5ONLY,
-	LGONLY,
-	EXTMON,
+    KIPAS = QK_KB_0,
+	PWOFF,
+	PWRBT,
+	SAMG5,
+	LGTV,
+	G5LG,
+	ETHOF,
+	ETHON,
 };
 
 enum layers {
@@ -58,48 +59,135 @@ void install_tap_dance_entries(void) {
 								   S(KC_RBRC), 	// doubletap: right bracket '}'
 								   KC_NO,
                                    TAP_TAPPING_TERM };
+/*    vial_tap_dance_entry_t td4 = { KC_1,		// tap: 1
+                                   KC_NO,
+								   KC_F1, 		// doubletap: F1
+								   KC_NO,
+                                   TAP_TAPPING_TERM };
+    vial_tap_dance_entry_t td5 = { KC_2,		// tap: 2
+                                   KC_NO,
+								   KC_F2, 		// doubletap: F2
+								   KC_NO,
+                                   TAP_TAPPING_TERM };
+    vial_tap_dance_entry_t td6 = { KC_3,		// tap: 3
+                                   KC_NO,
+								   KC_F3, 		// doubletap: F3
+								   KC_NO,
+                                   TAP_TAPPING_TERM };
+    vial_tap_dance_entry_t td7 = { KC_4,		// tap: 4
+                                   KC_NO,
+								   KC_F4, 		// doubletap: F4
+								   KC_NO,
+                                   TAP_TAPPING_TERM };
+    vial_tap_dance_entry_t td8 = { KC_5,		// tap: 5
+                                   KC_NO,
+								   KC_F5, 		// doubletap: F5
+								   KC_NO,
+                                   TAP_TAPPING_TERM };
+    vial_tap_dance_entry_t td9 = { KC_6,		// tap: 6
+                                   KC_NO,
+								   KC_F6, 		// doubletap: F6
+								   KC_NO,
+                                   TAP_TAPPING_TERM };
+    vial_tap_dance_entry_t td10 = { KC_7,		// tap: 7
+                                    KC_NO,
+								    KC_F7, 		// doubletap: F7
+								    KC_NO,
+                                    TAP_TAPPING_TERM };
+    vial_tap_dance_entry_t td11 = { KC_8,		// tap: 8
+                                    KC_NO,
+								    KC_F8, 		// doubletap: F8
+								    KC_NO,
+                                    TAP_TAPPING_TERM };
+    vial_tap_dance_entry_t td12 = { KC_9,		// tap: 9
+                                    KC_NO,
+								    KC_F9, 		// doubletap: F9
+								    KC_NO,
+                                    TAP_TAPPING_TERM };
+    vial_tap_dance_entry_t td13 = { KC_0,		// tap: 0
+                                    KC_NO,
+								    KC_F10, 	// doubletap: F10
+								    KC_NO,
+                                    TAP_TAPPING_TERM };
+    vial_tap_dance_entry_t td14 = { KC_MINS,	// tap: - (minus)
+                                    KC_NO,
+								    KC_F11, 	// doubletap: F11
+								    KC_NO,
+                                    TAP_TAPPING_TERM };
+    vial_tap_dance_entry_t td15 = { KC_EQL,		// tap: = (equal)
+                                    KC_NO,
+								    KC_F12, 	// doubletap: F12
+								    KC_NO,
+                                    TAP_TAPPING_TERM };
+*/
     dynamic_keymap_set_tap_dance(0, &td0);
     dynamic_keymap_set_tap_dance(1, &td1);
 	dynamic_keymap_set_tap_dance(2, &td2);
 	dynamic_keymap_set_tap_dance(3, &td3);
+/*
+	dynamic_keymap_set_tap_dance(4, &td4);
+	dynamic_keymap_set_tap_dance(5, &td5);
+	dynamic_keymap_set_tap_dance(6, &td6);
+	dynamic_keymap_set_tap_dance(7, &td7);
+	dynamic_keymap_set_tap_dance(8, &td8);
+	dynamic_keymap_set_tap_dance(9, &td9);
+	dynamic_keymap_set_tap_dance(10, &td10);
+	dynamic_keymap_set_tap_dance(11, &td11);
+	dynamic_keymap_set_tap_dance(12, &td12);
+	dynamic_keymap_set_tap_dance(13, &td13);
+	dynamic_keymap_set_tap_dance(14, &td14);
+	dynamic_keymap_set_tap_dance(15, &td15);
+*/
 }
 
 // send string to run batch files
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
-    case KEEPAS // run keepass
+    case KIPAS: // run keepass
         if (record->event.pressed) {
             SEND_STRING(SS_TAP(X_LGUI) SS_DELAY(100) "keepasseirik" SS_DELAY(100) SS_TAP(X_ENT));
         } else {
         }
         break;
-	case PCOFF: // shut down computer
+	case PWOFF: // shut down computer
         if (record->event.pressed) {
-            SEND_STRING(SS_TAP(X_LGUI) SS_DELAY(100) "PowerShell-Poweroff" SS_DELAY(100) SS_TAP(X_ENT));
+            SEND_STRING(SS_TAP(X_LGUI) SS_DELAY(100) "Shutdown-PowerOff-cmd" SS_DELAY(100) SS_TAP(X_ENT));
         } else {
         }
         break;
-	case REBOOT: // reboot computer
+	case PWRBT: // reboot computer
         if (record->event.pressed) {
-            SEND_STRING(SS_TAP(X_LGUI) SS_DELAY(100) "PowerShell-Reboot" SS_DELAY(100) SS_TAP(X_ENT));
+            SEND_STRING(SS_TAP(X_LGUI) SS_DELAY(100) "Shutdown-Reboot-cmd" SS_DELAY(100) SS_TAP(X_ENT));
         } else {
         }
         break;
-	case G5ONLY: // SamsungG5 only
+	case SAMG5: // SamsungG5 only
         if (record->event.pressed) {
-            SEND_STRING(SS_TAP(X_LGUI) SS_DELAY(100) "SamsungG5" SS_DELAY(100) SS_TAP(X_ENT));
+            SEND_STRING(SS_TAP(X_LGUI) SS_DELAY(100) "SamsungG5-Only-cmd" SS_DELAY(100) SS_TAP(X_ENT));
         } else {
         }
         break;
-	case LGONLY: // LGTV only
+	case LGTV: // LGTV only
         if (record->event.pressed) {
-            SEND_STRING(SS_TAP(X_LGUI) SS_DELAY(100) "LGTV" SS_DELAY(100) SS_TAP(X_ENT));
+            SEND_STRING(SS_TAP(X_LGUI) SS_DELAY(100) "LGTV-Only-cmd" SS_DELAY(100) SS_TAP(X_ENT));
         } else {
         }
         break;
-	case EXTMON: // Extend monitors
+	case G5LG: // Extend monitors
         if (record->event.pressed) {
-            SEND_STRING(SS_TAP(X_LGUI) SS_DELAY(100) "G5+LG" SS_DELAY(100) SS_TAP(X_ENT));
+            SEND_STRING(SS_TAP(X_LGUI) SS_DELAY(100) "G5+LG-Extended-cmd" SS_DELAY(100) SS_TAP(X_ENT));
+        } else {
+        }
+        break;
+	case ETHOF: // Extend monitors
+        if (record->event.pressed) {
+            SEND_STRING(SS_TAP(X_LGUI) SS_DELAY(100) "disable_intel_ethernet" SS_DELAY(100) SS_TAP(X_ENT));
+        } else {
+        }
+        break;
+	case ETHON: // Extend monitors
+        if (record->event.pressed) {
+            SEND_STRING(SS_TAP(X_LGUI) SS_DELAY(100) "enable_intel_ethernet" SS_DELAY(100) SS_TAP(X_ENT));
         } else {
         }
         break;
@@ -123,25 +211,25 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_L0] = LAYOUT(
-		QK_GESC, KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_MINS, KC_EQL,  KC_BSPC, KC_BSPC, KC_HOME,
+		QK_GESC, KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    KC_6,    KC_7,   KC_8,     KC_9,    KC_0,    KC_MINS, KC_EQL,  KC_BSPC, KC_BSPC, KC_HOME,
 		KC_TAB,           KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    EU_ARNG, KC_RBRC, KC_BSLS, KC_PGUP,
 		KC_CAPS,          KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    KC_H,    KC_J,    KC_K,    KC_L,    EU_AE,   EU_OSTR, KC_ENT,           KC_PGDN,
 		KC_LSFT, KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_RSFT,          KC_UP,   KC_DEL,
 		KC_LCTL, KC_LGUI, KC_LALT,                            KC_SPC,                    KC_RALT, MO(_L1),                   KC_LEFT, KC_DOWN, KC_RGHT
 	),
     [_L1] = LAYOUT(
-		KC_GRV,  KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,  KC_F12,  QK_BOOT, QK_BOOT, KC_END,
-		EE_CLR,           UG_TOGG, UG_NEXT, UG_HUEU, UG_SATU, UG_VALU, UG_SPDU, _______, _______, _______, _______, TD(2),   TD(3),   _______, KC_PSCR,
-		QK_RBT,           _______, _______, UG_HUED, UG_SATD, UG_VALD, UG_SPDD, _______, _______, _______, TD(0),   TD(1),   _______,          KC_SCRL,
-		_______, _______, _______, _______, _______, _______, NK_OFF,  NK_ON,   MONG5,   LGTV,    EXTMON,  _______, _______,          KC_VOLU, KC_PAUS,
-		_______, _______, _______,                            _______,                   _______, _______,                   KEEPAS,  KC_VOLD, KC_INS
+		KC_GRV,  KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,  KC_F12,  _______, _______, KC_END,
+		_______,          UG_TOGG, UG_NEXT, UG_HUEU, UG_SATU, UG_VALU, UG_SPDU, _______, _______, _______, KIPAS,   TD(2),   TD(3),   _______, KC_PSCR,
+		_______,          _______, _______, UG_HUED, UG_SATD, UG_VALD, UG_SPDD, _______, KC_MYCM, _______, TD(0),   TD(1),   _______,          KC_SCRL,
+		_______, _______, _______, _______, _______, _______, QK_BOOT, NK_ON,   _______, _______, _______, _______, MO(_L2),          KC_VOLU, KC_PAUS,
+		_______, _______, _______,                            _______,                   ETHOF,   _______,                   EU_AT,   KC_VOLD, KC_INS
 	),
     [_L2] = LAYOUT(
-        _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
-        _______,          _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
-        _______,          _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,          _______,
-        _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,          _______, _______,
-        _______, _______, _______,                            _______,                   _______, _______,                   _______, _______, _______
+        QK_BOOT, _______, _______, _______, _______, _______, _______, _______, SAMG5,   LGTV,    G5LG,    _______, _______, _______, _______, _______,
+        EE_CLR,           _______, _______, _______, PWRBT,   _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
+        QK_RBT,           _______, PWOFF,   _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,          _______,
+        _______, _______, _______, _______, _______, _______, _______, NK_OFF,  _______, _______, _______, _______, _______,          _______, _______,
+        _______, _______, _______,                            _______,                   ETHON,   _______,                   _______, _______, _______
 	)
 };
 

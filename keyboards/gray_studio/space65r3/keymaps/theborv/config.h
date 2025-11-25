@@ -10,10 +10,10 @@
 #define WS2812_DI_PIN B10
 #define DEBOUNCE 3
 #define USB_MAX_POWER_CONSUMPTION 500
-#define USB_POLLING_INTERVAL_MS 2
+#define USB_POLLING_INTERVAL_MS 1
 #define QMK_KEYS_PER_SCAN 12
 #define NKRO_DEFAULT_ON true
-#define VIAL_KEYBOARD_UID {0x0D, 0x4E, 0xE5, 0x0C, 0x50, 0xA9, 0x87, 0xF7} // cd C:/Users/Eirik/Documents/vial-qmk --- python3 util/vial_generate_keyboard_uid.py
+#define VIAL_KEYBOARD_UID {0x49, 0xD0, 0x50, 0xDB, 0x5A, 0x09, 0x95, 0x17} // cd C:/Users/Eirik/Documents/vial-qmk --- python3 util/vial_generate_keyboard_uid.py
 #define VIAL_UNLOCK_COMBO_ROWS { 0, 2 }
 #define VIAL_UNLOCK_COMBO_COLS { 0, 13 }
 #define TAPPING_TERM 175
@@ -32,10 +32,11 @@
 #define RGBLIGHT_LIMIT_VAL 200
 #define RGBLIGHT_DEFAULT_HUE 240
 #define RGBLIGHT_DEFAULT_SAT 255
-#define RGBLIGHT_DEFAULT_VAL 200
+#define RGBLIGHT_DEFAULT_VAL 66
 #define RGBLIGHT_DEFAULT_SPD 0
 
-// RGB Light (underglow) effects disable
+/*// RGB Light (underglow) effects disable
+#undef RGBLIGHT_ANIMATIONS
 #undef RGBLIGHT_EFFECT_BREATHING
 #undef RGBLIGHT_EFFECT_RAINBOW_MOOD
 #undef RGBLIGHT_EFFECT_RAINBOW_SWIRL
@@ -92,3 +93,4 @@
 #undef ENABLE_RGB_MATRIX_MULTISPLASH
 #undef ENABLE_RGB_MATRIX_SOLID_SPLASH
 #undef ENABLE_RGB_MATRIX_SOLID_MULTISPLASH
+*/
